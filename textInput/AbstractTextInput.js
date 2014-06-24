@@ -49,7 +49,15 @@
 		this.showPlaceholder();
 			
 	}//setPlaceholder
+
 	
+	AbstractTextInput.prototype.setPlaceholderColor = function(_placeholderColor){
+			
+		this.placeholderColor = _placeholderColor;
+		this.showPlaceholder();
+			
+	}//setPlaceholderColor
+
 	
 	AbstractTextInput.prototype.showPlaceholder = function(){
 			
