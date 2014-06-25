@@ -7,6 +7,8 @@
 		
 		this.rootDiv = document.getElementById(_idRootDiv);
 		this.viewControllers = new Array();
+		this.language = "en";
+		this.strings = {};
 		
 		var that = this;
 		
@@ -28,6 +30,13 @@
 		
 			
 	}//start
+	
+	
+	Application.prototype.loadStringsAndStart = function(){
+		
+		this.start();
+			
+	}//loadStringsAndStart
 	
 	
 	Application.prototype.addViewController = function(_viewController){

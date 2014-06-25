@@ -245,15 +245,17 @@
 
 	View.prototype.setBorder = function(_border, _fixed){
 
-		this.setBorderTop(new up.Border(_border.width, _border.color, _border.style), _fixed);
-		this.setBorderRight(new up.Border(_border.width, _border.color, _border.style), _fixed);
-		this.setBorderBottom(new up.Border(_border.width, _border.color, _border.style), _fixed);
-		this.setBorderLeft(new up.Border(_border.width, _border.color, _border.style), _fixed);
+		this.setBorderTop(_border, _fixed);
+		this.setBorderRight(_border, _fixed);
+		this.setBorderBottom(_border, _fixed);
+		this.setBorderLeft(_border, _fixed);
 
 	}//setBorder
 
 
 	View.prototype.setBorderTop = function(_border, _fixed){
+		
+		_border = new up.Border(_border.width, _border.color, _border.style);
 
 		if(this.currentRatioH == 0 && this.parentView == null) return;
 
@@ -269,6 +271,8 @@
 
 
 	View.prototype.setBorderRight = function(_border, _fixed){
+		
+		_border = new up.Border(_border.width, _border.color, _border.style);
 
 		if(this.currentRatioW == 0 && this.parentView == null) return;
 
@@ -284,6 +288,8 @@
 
 
 	View.prototype.setBorderBottom = function(_border, _fixed){
+		
+		_border = new up.Border(_border.width, _border.color, _border.style);
 
 		if(this.currentRatioH == 0 && this.parentView == null) return;
 
@@ -299,6 +305,8 @@
 
 
 	View.prototype.setBorderLeft = function(_border, _fixed){
+		
+		_border = new up.Border(_border.width, _border.color, _border.style);
 
 		if(this.currentRatioW == 0 && this.parentView == null) return;
 
