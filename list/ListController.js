@@ -32,7 +32,7 @@
 		for(var i=0 ; i<this.data.length ; i++){
 			
 			var itemView = this.adapter.createItem(this.data[i], i, this.view);
-			itemView.id = i;
+			itemView.setId(i);
 			this.view.addItemView(itemView);
 			
 		}
