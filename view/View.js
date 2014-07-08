@@ -358,8 +358,10 @@
 			this.setX(_relView.frame.x + _relView.frame.width - this.frame.width + _distance*ratioW , true);
 
 		}else if(this.parentView != null){
-
-			this.setX(this.parentView.frame.width - this.frame.width + _distance*ratioW , true);
+			
+			var widthContent = this.parentView.frame.width - this.parentView.borderLeft.width - this.parentView.borderRight.width;
+			
+			this.setX(widthContent - this.frame.width + _distance*ratioW , true);
 
 		}
 
@@ -381,8 +383,10 @@
 			this.setY(_relView.frame.y + _relView.frame.height - this.frame.height +  _distance*ratioH , true);
 
 		}else if(this.parentView != null){
-
-			this.setY(this.parentView.frame.height - this.frame.height + _distance*ratioH , true);
+			
+			var heightContent = this.parentView.frame.height - this.parentView.borderTop.width - this.parentView.borderBottom.width;
+			
+			this.setY(heightContent - this.frame.height + _distance*ratioH , true);
 
 		}
 
@@ -489,8 +493,10 @@
 			this.setX( _relView.frame.x + (_relView.frame.width/2) - (this.frame.width/2) + _distance*ratioW , true);
 
 		}else if(this.parentView != null){
-
-			this.setX( (this.parentView.frame.width/2) - (this.frame.width/2) + _distance*ratioW , true);
+			
+			var widthContent = this.parentView.frame.width - (this.parentView.borderLeft.width + this.parentView.borderRight.width);
+		
+			this.setX(widthContent/2 - (this.frame.width/2) + _distance*ratioW, true);
 
 		}
 
@@ -512,8 +518,10 @@
 			this.setY( _relView.frame.y + (_relView.frame.height/2) - (this.frame.height/2) + _distance*ratioH , true);
 
 		}else if(this.parentView != null){
-
-			this.setY( (this.parentView.frame.height/2) - (this.frame.height/2) + _distance*ratioH , true);
+			
+			var heightContent = this.parentView.frame.height - (this.parentView.borderTop.width + this.parentView.borderBottom.width);
+			
+			this.setY(heightContent/2 - (this.frame.height/2) + _distance*ratioH, true);
 
 		}
 
