@@ -101,17 +101,18 @@
 
 	View.prototype.doLayout = function(_parentLayout){
 		
-		if(this.currentLayout == null){
-			this.chooseLayout(_parentLayout); 
-		}
-		
-		if(this.layouts.length > 0){
-			this["doLayout_"+this.currentLayout.width+"_"+this.currentLayout.height](this.currentRatioW, this.currentRatioH);
-		}
+		this.chooseLayout(_parentLayout);
 		
 		var i = this.childViews.length;
 		while(i--){
 			this.childViews[i].doLayout(this.currentLayout);
+		}
+		
+		//it's very important that when the view calls doLayout, his children have just choosed their layout. 
+		//In this way it's possible to set children's size properties, in the parent overwritten doLayout. 
+		
+		if(this.layouts.length > 0){
+			this["doLayout_"+this.currentLayout.width+"_"+this.currentLayout.height](this.currentRatioW, this.currentRatioH);
 		}
 
 	}//doLayout
@@ -142,11 +143,6 @@
 		this.currentLayout = bestLayout;
 		this.currentRatioW = screenWidth / bestLayout.width;
 		this.currentRatioH = screenHeight / bestLayout.height;
-		
-		var i = this.childViews.length;
-		while(i--){
-			this.childViews[i].chooseLayout(this.currentLayout);
-		}
 
 	}//chooseLayout
 	

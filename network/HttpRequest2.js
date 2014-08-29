@@ -78,7 +78,7 @@
 	
 	HttpRequest2.prototype.setHeader = function(_key, _value){
 		
-		this.headers[_key] = _value;
+		this.headers[key] = value;
 			
 	}//setHeader
 	
