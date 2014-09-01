@@ -16,7 +16,7 @@
 			
 			for(var i in that.viewControllers){
 				
-				that.viewControllers[i].view.doLayout();
+				that.viewControllers[i].view.update();
 			
 			}
 			

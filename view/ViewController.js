@@ -12,7 +12,7 @@
 	
 	ViewController.prototype.onAppendView = function(){
 		
-		this.view.doLayout();
+		this.view.update();
 		this.view.doStyle();
 			
 	}//onAppendView

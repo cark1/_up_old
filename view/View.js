@@ -92,6 +92,15 @@
 
 //layout
 
+
+	View.prototype.update = function(){
+		
+		this.chooseLayout();
+		this.doLayout();
+		
+	}//update
+
+
 	View.prototype.registerLayout = function(_layout){
 
 		this.layouts.push(_layout);
@@ -99,32 +108,13 @@
 	}//registerLayout
 
 
-	View.prototype.doLayout = function(_parentLayout){
-		
-		this.chooseLayout(_parentLayout);
-		
-		var i = this.childViews.length;
-		while(i--){
-			this.childViews[i].doLayout(this.currentLayout);
-		}
-		
-		//it's very important that when the view calls doLayout, his children have just choosed their layout. 
-		//In this way it's possible to set children's size properties, in the parent overwritten doLayout. 
-		
-		if(this.layouts.length > 0){
-			this["doLayout_"+this.currentLayout.width+"_"+this.currentLayout.height](this.currentRatioW, this.currentRatioH);
-		}
-
-	}//doLayout
-
-
-	View.prototype.chooseLayout = function(_parentLayout){
+	View.prototype.chooseLayout = function(){
 
 		var screenWidth = document.documentElement.clientWidth;
 		var screenHeight = document.documentElement.clientHeight;
 		var screenRatio = screenWidth/screenHeight;
 
-		var bestLayout = _parentLayout;
+		var bestLayout = null;
 		var bestDelta = -1;
 
 		for(var i in this.layouts){
@@ -139,12 +129,35 @@
 			}
 
 		}
+		
+		if(bestLayout == null){
+			bestLayout = this.parentView.currentLayout;
+		}
 
 		this.currentLayout = bestLayout;
 		this.currentRatioW = screenWidth / bestLayout.width;
 		this.currentRatioH = screenHeight / bestLayout.height;
+		
+		var i = this.childViews.length;
+		while(i--){
+			this.childViews[i].chooseLayout(this.currentLayout);
+		}
 
 	}//chooseLayout
+	
+	
+	View.prototype.doLayout = function(){
+		
+		if(this.layouts.length > 0){
+			this["doLayout_"+this.currentLayout.width+"_"+this.currentLayout.height](this.currentRatioW, this.currentRatioH);
+		}
+
+		var i = this.childViews.length;
+		while(i--){
+			this.childViews[i].doLayout();
+		}
+
+	}//doLayout
 	
 //frame	
 	
