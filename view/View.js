@@ -122,6 +122,10 @@
 
 		var screenWidth = document.documentElement.clientWidth;
 		var screenHeight = document.documentElement.clientHeight;
+		
+		if(screenWidth < 1024) screenWidth = 1024;
+		if(screenHeight < 768) screenHeight = 768;
+		
 		var screenRatio = screenWidth/screenHeight;
 
 		var bestLayout = _parentLayout;

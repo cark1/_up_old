@@ -12,12 +12,12 @@
 		
 		var that = this;
 		
-		this.minWidth = 1024;
-		this.minHeight = 768;
+		//this.minWidth = 1024;
+		//this.minHeight = 768;
 		
 		window.onresize = function(event){
 			
-			if(window.outerWidth <= that.minWidth || window.outerHeight <= that.minHeight) return;
+			//if(window.outerWidth <= that.minWidth || window.outerHeight <= that.minHeight) return;
 			
 			for(var i in that.viewControllers){
 				
