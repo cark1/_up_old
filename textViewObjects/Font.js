@@ -43,11 +43,7 @@
 		var fontFace = 
 		"@font-face {"+
 			"font-family: '"+_name+"';"+
-			"src: url('"+_url+"/"+_name+".eot'); /* IE9 Compat Modes */"+
-			"src: url('"+_url+"/"+_name+".eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */"+
-			     "url('"+_url+"/"+_name+".woff') format('woff'), /* Modern Browsers */"+
-			     "url('"+_url+"/"+_name+".ttf')  format('truetype'), /* Safari, Android, iOS */"+
-			     "url('"+_url+"/"+_name+".svg#"+_name+"') format('svg'); /* Legacy iOS */"+
+			"src: url('"+_url+"/"+_name+".ttf') format('truetype');"+
 			"}";
         
 		var styleNode = document.createElement('style');
