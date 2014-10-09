@@ -140,7 +140,11 @@
 			
 			if(urlParamsString.length>0) urlParamsString += '&';
 			
-			urlParamsString+= key+"="+encodeURIComponent(this.urlParams[key]);
+			if(this.urlParams[key]==null){
+				urlParamsString+= key+"=";
+			}else{
+				urlParamsString+= key+"="+encodeURIComponent(this.urlParams[key]);
+			}
 		
 		}
 		
@@ -172,9 +176,13 @@
 			for(var key in this.bodyParams){
 			
 				if(bodyString.length>0) bodyString += '&';
-			
-				bodyString+= key+"="+encodeURIComponent(this.bodyParams[key]);
-		
+				
+				if(this.bodyParams[key]==null){
+					bodyString+= key+"=";
+				}else{
+					bodyString+= key+"="+encodeURIComponent(this.bodyParams[key]);
+				}
+				
 			}
 		
 		}else{
